@@ -1,17 +1,24 @@
 package org.example;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        MyArrayList list = new MyArrayList();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        list.add("Java");
+        list.add("Python");
+        list.add("C++");
+
+        System.out.println("Список після додавання елементів:");
+        list.print();
+
+        // Використовуємо метод get для отримання елементів за індексом
+        System.out.println("\nЕлемент за індексом 1: " + list.get(1)); // Повинно вивести "Python"
+        System.out.println("Елемент за індексом 0: " + list.get(0)); // Повинно вивести "Java"
+
+        // Спроба отримати елемент за некоректним індексом
+        try {
+            System.out.println("Елемент за індексом 3: " + list.get(3));  // Викличе виняток
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
